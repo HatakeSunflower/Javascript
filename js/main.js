@@ -39,7 +39,7 @@ function development() {
     const pagetype = ['empresarial', 'personal'];
     const layouttype = ['si', 'no'];
     if (service == type[0]) {
-        alert(`Bienvenido`);
+        alert(`Bienvenido al cotizador para desarrollo web`);
         let page = prompt("El proposito del sitio es empresarial o personal?");
         const valuer = pagevalue();
         function pagevalue() {
@@ -88,6 +88,7 @@ function design() {
 function illustration() {
     const hard = ['alto', 'medio', 'bajo'];
     if (service == type[2]) {
+        alert(`Bienvenido al cotizador para ilustraciones`);
         let illus = prompt("Cuantas piezas se requieren ilustrar?");
         let reso = prompt("Indique la resolucion de las ilustraciones (alto, medio, bajo).");
         const diff = resolution();
