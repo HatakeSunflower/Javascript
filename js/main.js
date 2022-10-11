@@ -32,7 +32,6 @@ function login() {
 login();
 
 // inicio del cotizador
-
 let service = prompt("Dime el tipo de servicio: 'desarrollo', 'diseño' o 'ilustracion'");
 const type = ['desarrollo', 'diseño', 'ilustracion'];
 
@@ -72,28 +71,58 @@ function development() {
 
 }
 
-
-
-
-
-
-
-
-
 function design() {
     if (service == type[1]) {
-        let pieces = prompt("Cuantas piezas se requieren diseñar?");
-        let blueprints = prompt("Cuenta con los planos de ingenieria?");
-        let mec = prompt("Se requiere analisis mecanico?");
-        alert(`Bienvenido`);
+        alert(`Por favor, llene esta solicitud y me contactare directamente lo mas pronto posible`);
+        const inputObject = {
+            mail: prompt("correo electronico"),
+            num: prompt("numero de telefono"),
+            com: prompt("Escriba los detalles de la comision."),
+        };
+        for (const property in inputObject) {
+          console.log(property);
+        }
     }
 }
 
 function illustration() {
+    const hard = ['alto', 'medio', 'bajo'];
     if (service == type[2]) {
         let illus = prompt("Cuantas piezas se requieren ilustrar?");
-        let reso = prompt("Indique la resolucion de las ilustraciones.");
+        let reso = prompt("Indique la resolucion de las ilustraciones (alto, medio, bajo).");
+        const diff = resolution();
+        function resolution() {
+            if ((reso == hard[0])) {
+                let value = 1.8;
+                return value;
+            }
+            else if ((reso == hard[1])) {
+                let value = 1.4;
+                return value;
+            }
+            else if ((reso == hard[2])) {
+                let value = 1;
+                return value;
+            }
+        }
         let detail = prompt("Indique el nivel de detalle (alto, medio, bajo).");
+        const diffe = details();
+        function details() {
+            if ((detail == hard[0])) {
+                let cost = 1.8;
+                return cost;
+            }
+            else if ((detail == hard[1])) {
+                let cost = 1.4;
+                return cost;
+            }
+            else if ((detail == hard[2])) {
+                let cost = 1;
+                return cost;
+            }
+        }
+        let total = illus * diff * diffe * 6 * 4;
+        alert(`El costo aproximado de tu comision es de ${total} usd`);
     }
 }
 
