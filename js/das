@@ -1,0 +1,44 @@
+// registro e inicio de sesion 
+alert("Bienvenido al cotizador de HatakeSNFLWR, por favor registrese o inicie sesion  para continuar");
+
+let username = prompt("Escribe un nombre de usuario:");
+let password = prompt("Escribe una contraseña:");
+
+alert("Registro correcto, inicia sesion");
+
+function uservalid() {
+    let storageuser = prompt("Ingresa tu usuario:");
+    while (storageuser != username) {
+        alert("Usuario incorrecto, intenta nuevamente:");
+        storageuser = prompt("Ingresa tu usuario:");
+    };
+    return storageuser;
+}
+
+function passvalid() {
+    let storagepass = prompt("Ingresa tu contraseña:");
+    while (storagepass != password) {
+        storagepass = prompt("Contraseña incorrecta, intenta de nuevo:");
+    }
+    return storagepass;
+}
+
+function login() {
+    if (uservalid(), passvalid()) {
+        return alert(`Bienvenido ${username}`);
+    }
+}
+
+login();
+
+
+function logout() {
+    alert("Hasta luego " + username)
+}
+
+development();
+illustration();
+design();
+pagevalue();
+layoutcost();
+logout();
