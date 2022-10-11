@@ -1,101 +1,68 @@
-let nombreUsuario = prompt("Escribe un nombre de usuario:");
-let contraseniaUsuario = prompt("Escribe una contraseña:");
-let saldoInicial = parseFloat(prompt ("Ingresa tu saldo inicial:"));
-let saldoActual = saldoInicial;
+// registro e inicio de sesion 
+alert("Bienvenido al cotizador de HatakeSNFLWR, por favor registrese o inicie sesion  para continuar");
 
-alert("Registro correcto, ingresa con tus credenciales");
+let username = prompt("Escribe un nombre de usuario:");
+let password = prompt("Escribe una contraseña:");
 
+alert("Registro correcto, inicia sesion");
 
-function validarUsuario(){
-    let usuarioIngresado = prompt("Ingresa tu usuario:");
-    while (usuarioIngresado != nombreUsuario){
+function uservalid(){
+    let storageuser = prompt("Ingresa tu usuario:");
+    while (storageuser != username){
         alert("Usuario incorrecto, intenta nuevamente:");
-        usuarioIngresado = prompt("Ingresa tu usuario:");
+        storageuser = prompt("Ingresa tu usuario:");
     };
-    return usuarioIngresado;
+    return storageuser;
 }
 
-function validarContrasenia(){
-    let contraseniaIngresada = prompt("Ingresa tu contraseña:");
-    while (contraseniaIngresada != contraseniaUsuario){
-        contraseniaIngresada = prompt("Contraseña incorrecta, intenta de nuevo:");
+function passvalid(){
+    let storagepass = prompt("Ingresa tu contraseña:");
+    while (storagepass != password){
+        storagepass = prompt("Contraseña incorrecta, intenta de nuevo:");
     }
-    return contraseniaIngresada;
+    return storagepass;
 }
 
-function iniciarSesion(){
-    if (validarUsuario(),validarContrasenia()) {
-        return alert(`Bienvenido ${nombreUsuario}`);
-    }
-}
-
-function mostrarSaldo(){
-    return alert(`Tu saldo actual es de ${saldoActual}`);
-}
-
-function agregarSaldo(){
-    abono = parseFloat(prompt("Ingresa la cantidad a abonar"));
-    saldoActual += confirmarCantidad(abono);
-    mostrarSaldo();
-    return saldoActual;
-}
-
-function retirarDinero(){
-    retiro = parseFloat(prompt("Ingresa la cantidad a retirar"));
-    saldoActual -= validarSaldo(retiro);
-    alert(`Retiro exitoso, tu nuevo saldo es de ${saldoActual}`);
-    return;
-}
-
-function modificarDatos(){
-    alert("Para modificar tus datos personales necesitamos validar tu identidad");
-    validarContrasenia();
-    nombreUsuario = prompt("Ingresa tu nuevo usuario:");
-    contraseniaUsuario = prompt("Ingresa tu nueva contraseña:");
-    alert(`Tu nuevo usuario es ${nombreUsuario} y tu contraseña es ${contraseniaUsuario}`)
-    return nombreUsuario, contraseniaUsuario;
-}
-
-function transferir(){
-    destinatario = prompt("Ingresa el correo electronico del destinatario:");
-    cantidad = parseFloat(prompt("Ingresa la cantidad a transferir"));
-    saldoActual -= validarSaldo(cantidad);
-    alert(`Transferencia enviada a ${destinatario} de manera exitosa, tu nuevo saldo es de ${saldoActual}`);
-    return;
-}
-
-function confirmarCantidad(cantidad){
-    if (prompt(`La cantidad ingresada es ${cantidad}, ¿Confirmar? s/n`) == "s"){
-        return cantidad;
-    }
-    else{
-        nuevaCantidad = parseInt(prompt("Ingresa la cantidad correcta"));
-        confirmarCantidad(nuevaCantidad);
-        return nuevaCantidad
+function login(){
+    if (uservalid(),passvalid()) {
+        return alert(`Bienvenido ${username}`);
     }
 }
 
-function validarSaldo(dinero){
-    confirmarCantidad(dinero);
-    while (dinero > saldoActual){
-        dinero = parseFloat(prompt(`La cantidad excede tu saldo actual el cual es de ${saldoActual}, ingresa otra cantidad:`));
-        confirmarCantidad(dinero);
+login();
+
+// inicio del cotizador
+
+let service = prompt("Dime el tipo de servicio: 'desarrollo', 'diseño' o 'ilustracion'");
+const type = ['desarrollo', 'diseño', 'ilustracion'];
+
+function development(){
+    if (service == type[0]) {
+        alert(`Bienvenido`);
+        let page = prompt("El proposito del sitio es empresarial o personal?");
+        let pages = prompt("Cuantas secciones tendria la pagina?");
+        let layout = prompt("El sitio seria responsivo?");
     }
-    return dinero;
 }
 
-function cerrarSesion(){
-    alert("Hasta luego " + nombreUsuario)
+function design(){
+    if (service == type[1]) {
+        let pieces = prompt("Cuantas piezas se requieren diseñar?");
+        let blueprints = prompt("Cuenta con los planos de ingenieria?");
+        let mec = prompt("Se requiere analisis mecanico?");
+        alert(`Bienvenido`);
+    }
 }
 
+function illustration(){
+    if (service == type[2]) {
+        let illus = prompt("Cuantas piezas se requieren ilustrar?");
+        let reso = prompt("Indique la resolucion de las ilustraciones.");
+        let detail = prompt("Indique el nivel de detalle (alto, medio, bajo).");
+    }
+}
 
-iniciarSesion();
-mostrarSaldo();
-agregarSaldo();
-retirarDinero();
-modificarDatos();
-transferir();
-cerrarSesion()
-
-
+development();
+illustration();
+design();
 
